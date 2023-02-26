@@ -15,7 +15,17 @@
                         <router-link class="nav-link" to="/about">About</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/profile">Profile</router-link>
+                        <router-link class="nav-link" to="/profile"
+                            v-if="$store.state.isAuthenticated">Profile</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/login" v-if="!$store.state.isAuthenticated">Login</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/logout" v-if="$store.state.isAuthenticated">Logout</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/register" v-if="!$store.state.isAuthenticated">Register</router-link>
                     </li>
                 </ul>
                 <form class="form-inline">
